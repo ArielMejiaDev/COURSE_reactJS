@@ -16,7 +16,7 @@ class Media extends Component {
                         width={260}
                         height={160}
                         />
-                    <h3>¿Por que aprender React?</h3>
+                    <h3>¿Por que aprender React? ...</h3>
                 </div>
             </div>
         )

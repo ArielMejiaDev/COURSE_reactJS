@@ -13,11 +13,16 @@
 
 
 import React from 'react';
-import ReactDom from 'react-dom';
+//podemos desfragmentar el objeto y unicamente traer el metodo render del objeto ReactDom
+import {render} from 'react-dom';
+//import ReactDom from 'react-dom';
 import  Media from './playlist/components/media';
 
 const app = document.getElementById('app')
 const textLabel = <h1>Hola Mundo</h1>
 
-ReactDom.render(<Media/>, app)
+//forma anterior importando todo el objeto
+//ReactDom.render(<Media/>, app)
 
+//usando el metodo render directamente asi como lo importamos desfragmentado
+render(<Media/>, app)
