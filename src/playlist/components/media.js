@@ -21,9 +21,32 @@ class Media extends Component {
     // handleClick(ev){
     //     console.log(this.props.title)
     // }
+
+    //una propiedad es inmutable pero un estado si se puede cambiar
+    
+    //ecma 7
+    //esto funciona porque al ser un metodo que es heredado por la clase Component
+    //tambien le pertenece a la clase Media y esta lo que esta haciendo es inicializando el valor de la propiedad
+    //antes de ser invocada con el metodo setState ya que en ese caso todavia no existe dentro del state la propiedad author
+    state = {
+        author: 'nuevo autor'
+    }
+
+    //nuevamente metodo con ecma 6 segun documentacion react
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         author: props.author
+    //     }
+    // }
+
     //ecma 6 stage-2
     handleClick = (event) => {
-        console.log(this.props.title)
+        //console.log(this.props.title)
+        //con el metodo setState cambiamos el estado de un elemento
+        this.setState({
+            author: 'Nuevo autor',
+        })
     }
     render() {
         // const styles = {
@@ -48,7 +71,7 @@ class Media extends Component {
                         height={160}
                         />
                     <h3 className="Media-title">{this.props.title}</h3>
-                    <p className="Media-author">{this.props.author}</p>
+                    <p className="Media-author">{this.state.author}</p>
                     <p className="Media-category">{this.props.category}</p>
                 </div>
             </div>

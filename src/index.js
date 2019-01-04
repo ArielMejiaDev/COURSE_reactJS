@@ -19,7 +19,7 @@ import {render} from 'react-dom';
 import  Media from './playlist/components/media';
 
 const app = document.getElementById('app')
-const textLabel = <h1>Hola Mundo</h1>
+// const textLabel = <h1>Hola Mundo</h1>
 
 //forma anterior importando todo el objeto
 //ReactDom.render(<Media/>, app)
