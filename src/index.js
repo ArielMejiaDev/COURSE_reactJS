@@ -25,4 +25,9 @@ const textLabel = <h1>Hola Mundo</h1>
 //ReactDom.render(<Media/>, app)
 
 //usando el metodo render directamente asi como lo importamos desfragmentado
-render(<Media/>, app)
+render(<Media 
+    title="¿Que es responsive design?" 
+    author="Ariel Salvador"
+    image="images/cover/bitcoin.png"
+    category="css"
+     />, app)
