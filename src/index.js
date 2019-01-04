@@ -19,6 +19,7 @@ import {render} from 'react-dom';
 // import  Media from './playlist/components/media';
 //importando el componente playlist
 import Playlist from './playlist/components/playlist'
+import Home from './pages/containers/home'
 //importando los datos
 import data from './api.json';
 
@@ -36,6 +37,7 @@ const app = document.getElementById('app')
 //     category="css"
 //      />, app)
 
-render(<Playlist
-        data={data}
-        />, app)
+// render(<Playlist
+//         data={data}
+//         />, app)
+render(<Home />, app)
