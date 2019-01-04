@@ -40,4 +40,4 @@ const app = document.getElementById('app')
 // render(<Playlist
 //         data={data}
 //         />, app)
-render(<Home />, app)
+render(<Home data={data} />, app)
