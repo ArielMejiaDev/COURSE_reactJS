@@ -1,7 +1,7 @@
 //primera manera
 //import React from 'react';
 //segunda forma desfragmentando para traer unicamente la propiedad y no todo el objeto o clase
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 //importamos proptypes
 import PropTypes from 'prop-types';
 //importamos un archivo css
@@ -12,7 +12,7 @@ import './media.css';
 //class Media extends React.Component {
 
 //en vez de traer el objeto y su propiedad unicamente traemos su propiedad    
-class Media extends Component {
+class Media extends PureComponent {
     //asi seria en ecmascript 6 ya que hay que enlazar el contexto a la clase el evento onclick llama al browser y el this pasa a ser window
     //para evitar esto y que imprima alguna propiedad del objeto es necesario enlazar la funcion al contexto de la clase asi this seria la clase Media
     // constructor(props) {
