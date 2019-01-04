@@ -82,10 +82,9 @@ class Media extends PureComponent {
 }
 //nueva propiedad propTypes en la clase Media
 Media.propTypes = {
-    title: PropTypes.string,
-    author: PropTypes.string,
-    cover: PropTypes.string,
-    category: PropTypes.oneOf(['css', 'javascript']).isRequired
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    cover: PropTypes.string.isRequired,
     //PropTypes puede tener propiedades de tipo boolean, number, array, object, func de funcion
 }
 export default Media;
