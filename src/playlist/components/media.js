@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 //importamos un archivo css
 import './media.css';
 
+
+
 //class Media extends React.Component {
 
 //en vez de traer el objeto y su propiedad unicamente traemos su propiedad    
@@ -28,17 +30,17 @@ class Media extends Component {
     //esto funciona porque al ser un metodo que es heredado por la clase Component
     //tambien le pertenece a la clase Media y esta lo que esta haciendo es inicializando el valor de la propiedad
     //antes de ser invocada con el metodo setState ya que en ese caso todavia no existe dentro del state la propiedad author
-    state = {
-        author: 'nuevo autor'
-    }
+    // state = {
+    //     author: props.author,
+    // }
 
     //nuevamente metodo con ecma 6 segun documentacion react
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         author: props.author
-    //     }
-    // }
+    constructor(props) {
+        super(props)
+        this.state = {
+            author: props.author
+        }
+    }
 
     //ecma 6 stage-2
     handleClick = (event) => {
@@ -65,9 +67,9 @@ class Media extends Component {
                 <div className="Media-cover">
                 {/* <div  style={styles.container}> */}
                     <img 
-                        src={this.props.image}
+                        src={this.props.cover}
                         alt="" 
-                        width={260}
+                        width={230}
                         height={160}
                         />
                     <h3 className="Media-title">{this.props.title}</h3>
@@ -82,7 +84,7 @@ class Media extends Component {
 Media.propTypes = {
     title: PropTypes.string,
     author: PropTypes.string,
-    image: PropTypes.string,
+    cover: PropTypes.string,
     category: PropTypes.oneOf(['css', 'javascript']).isRequired
     //PropTypes puede tener propiedades de tipo boolean, number, array, object, func de funcion
 }
