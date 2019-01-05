@@ -23,7 +23,7 @@ import Home from './pages/containers/home'
 //importando los datos
 import data from './api.json';
 
-const app = document.getElementById('app')
+const HomeContainer = document.getElementById('home-container')
 // const textLabel = <h1>Hola Mundo</h1>
 
 //forma anterior importando todo el objeto
@@ -40,4 +40,4 @@ const app = document.getElementById('app')
 // render(<Playlist
 //         data={data}
 //         />, app)
-render(<Home data={data} />, app)
+render(<Home data={data} />, HomeContainer)

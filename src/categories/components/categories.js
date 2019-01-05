@@ -6,7 +6,7 @@ const Categories = (props) => {
         <div className="Categories">
             {
                 props.categories.map((item) => {
-                   return <Category {...item} key={item.id} />
+                   return <Category openModal={props.openModal} {...item} key={item.id} />
                 })
             }
         </div>

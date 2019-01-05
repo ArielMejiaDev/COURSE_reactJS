@@ -9,7 +9,7 @@ const Playlist = (props) => {
         return (
             <div className="Playlist">
                 {
-                    props.playlist.map((item) => <Media {...item} key={item.id} />)
+                    props.playlist.map((item) => <Media openModal={props.openModal} {...item} key={item.id} />)
                 }
             </div>
         )

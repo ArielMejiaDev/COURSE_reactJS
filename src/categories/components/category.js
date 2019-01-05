@@ -11,7 +11,7 @@ const Category = (props) => {
                     <Playlist {...item} />
                 })
             } */}
-            <Playlist playlist={props.playlist} />
+            <Playlist openModal={props.openModal} playlist={props.playlist} />
         </div>
     )
 }
