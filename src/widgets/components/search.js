@@ -6,10 +6,15 @@ const Search = (props) => (
     onSubmit={props.handleSubmit}
     >
         <input 
+        ref={props.setRef}
         type='text'
         placeholder="Busca tu video favorito"
         className='Search-input'
         name='search'
+        //defaultValue='HTML5'
+        //para manipular los datos de entrada
+        onChange={props.handleChange}
+        value={props.value}
         />
     </form>
 )
