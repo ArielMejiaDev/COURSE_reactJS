@@ -18,7 +18,7 @@ import {render} from 'react-dom';
 //import ReactDom from 'react-dom';
 // import  Media from './playlist/components/media';
 //importando el componente playlist
-import Playlist from './playlist/components/playlist'
+//import Playlist from './playlist/components/playlist'
 import Home from './pages/containers/home'
 //importando los datos
 import data from './api.json';

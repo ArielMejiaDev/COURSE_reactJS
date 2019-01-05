@@ -4,7 +4,6 @@ import Categories from '../../categories/components/categories'
 import Related from '../../related/components/related'
 import ModalContainer from '../../widgets/containers/modal-container'
 import Modal from '../../widgets/components/modal'
-import handleError from '../../widgets/containers/handle-error'
 import HandleError from '../../widgets/containers/handle-error';
 class Home extends Component {
     state = {
