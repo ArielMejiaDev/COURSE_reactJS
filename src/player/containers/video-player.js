@@ -8,6 +8,7 @@ import Controls from '../components/video-player-controls'
 import ProgressBar from '../components/progress-bar'
 import Spinner from '../components/spinner'
 import Volume from '../components/volume'
+import FullScreen from '../components/full-screen'
 class VideoPlayer extends Component {
     state = {
         pause: true,
@@ -74,9 +75,22 @@ class VideoPlayer extends Component {
     handleVolume = ev => {
         this.video.volume = ev.target.value
     }
+    setRef = element => {
+        this.player = element
+    }
+    handleFullScreen = ev => {
+        if (!document.webkitIsFullScreen) {
+            console.log('click')
+            this.player.webkitRequestFullscreen()
+        }else {
+            document.webkitExitFullscreen()
+        }
+    }
     render() {
         return(
-            <VideoPlayerLayout>
+            <VideoPlayerLayout 
+                setRef={this.setRef}
+            >
                 <Title 
                     title="Esto es un video chido!"
                 />
@@ -96,6 +110,9 @@ class VideoPlayer extends Component {
                     />
                     <Volume
                         handleVolume={this.handleVolume}
+                    />
+                    <FullScreen
+                        handleFullScreen={this.handleFullScreen}
                     />
                 </Controls>
                 <Spinner
