@@ -7,6 +7,7 @@ import Timer from '../components/timer'
 import Controls from '../components/video-player-controls'
 import ProgressBar from '../components/progress-bar'
 import Spinner from '../components/spinner'
+import Volume from '../components/volume'
 class VideoPlayer extends Component {
     state = {
         pause: true,
@@ -70,6 +71,9 @@ class VideoPlayer extends Component {
             loading: false,
         })
     }
+    handleVolume = ev => {
+        this.video.volume = ev.target.value
+    }
     render() {
         return(
             <VideoPlayerLayout>
@@ -89,6 +93,9 @@ class VideoPlayer extends Component {
                         duration={this.state.duration}
                         value={this.state.currentTime}
                         handleInputChange={this.handleInputChange}
+                    />
+                    <Volume
+                        handleVolume={this.handleVolume}
                     />
                 </Controls>
                 <Spinner
