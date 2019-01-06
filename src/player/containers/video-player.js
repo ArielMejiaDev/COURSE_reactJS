@@ -8,7 +8,8 @@ import Controls from '../components/video-player-controls'
 class VideoPlayer extends Component {
     state = {
         pause: true,
-        duration: 0
+        duration: 0,
+        currentTime: 0,
     }
     togglePlay = ev => {
         this.setState({
@@ -37,6 +38,21 @@ class VideoPlayer extends Component {
         //aqui se envia por parametro desde el padre inmediato que seria este archivo, por lo cual ev.target es la forma de obtener el elemento
         //al que le hacen click o lo que sea que se quiera capturar
     }
+    handleTimeMediaUpdate = event => {
+        this.setState({
+            currentTime: this.video.currentTime
+        })
+    }
+    //functions to format time
+    leftPad = (number) => {
+        const pad = '00'
+        return pad.substring(0, pad.length - number.length) + number
+    }
+    FormattedTime = (secs) => {
+        const minutes = parseInt(secs / 60, 10)
+        const seconds = parseInt(secs % 60, 10)
+        return `${this.leftPad(minutes.toString())} : ${this.leftPad(seconds.toString())}`
+    }
     render() {
         return(
             <VideoPlayerLayout>
@@ -49,11 +65,13 @@ class VideoPlayer extends Component {
                         handleClick={this.togglePlay}
                     />
                     <Timer 
-                        duration={this.state.duration}
+                        duration={this.FormattedTime(this.state.duration)}
+                        currentTime={this.FormattedTime(this.state.currentTime)}
                     />
                 </Controls>
                 <Video 
                     handleLoadedMetadata={this.handleLoadedMetadata}
+                    handleTimeMediaUpdate={this.handleTimeMediaUpdate}
                     autoplay={this.props.autoplay}
                     //no se envia props.pause ya que si no se quedaria fijo con el valor que inicia en el state al principio 
                     //de la declaracion del objeto, por ende al cambiar con el metodo setState NO SE DEBE SEGUIR UTILIZANDO props.pause
