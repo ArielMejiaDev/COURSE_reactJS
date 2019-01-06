@@ -92,7 +92,7 @@ class VideoPlayer extends Component {
                 setRef={this.setRef}
             >
                 <Title 
-                    title="Esto es un video chido!"
+                    title={this.props.title}
                 />
                 <Controls>
                     <PlayPause 
@@ -126,7 +126,7 @@ class VideoPlayer extends Component {
                     //de la declaracion del objeto, por ende al cambiar con el metodo setState NO SE DEBE SEGUIR UTILIZANDO props.pause
                     //sino state.pause, asi el valor que se envia al componente Video tambien cambia dinamicamente
                     pause={this.state.pause}
-                    src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+                    src={this.props.src}
                     handleSeeking={this.handleSeeking}
                     handleSeeked={this.handleSeeked}
                 />

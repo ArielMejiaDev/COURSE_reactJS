@@ -10,9 +10,10 @@ class Home extends Component {
     state = {
         modalVisible: false,
     }
-    openModal = (ev) => {
+    openModal = (media) => {
         this.setState({
-            modalVisible: true
+            modalVisible: true,
+            media
         })
     }
     closeModal = (ev) => {
@@ -39,6 +40,8 @@ class Home extends Component {
                             >
                                 <VideoPlayer
                                     autoplay={true}
+                                    src={this.state.media.src}
+                                    title={this.state.media.title}
                                 />
                             </Modal>
                         </ModalContainer>

@@ -6,11 +6,18 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 //importamos un archivo css
 import './media.css';
-//en vez de traer el objeto y su propiedad unicamente traemos su propiedad    
+//en vez de traer el objeto y su propiedad unicamente traemos su propiedad  
 class Media extends PureComponent {
+
+    //va a tomar los valores del props y le va a agregar otros params
+    openModal = event => {
+        this.props.openModal(this.props)//la funcion originalmente se ejecutaba en home, pero aparte ahora recibe los datos que vienen del props para llenar el media, el title, el author y src aunque este ultimo no lo he agregado
+    }
+
+
     render() {
         return (
-            <div  className="Media" onClick={this.props.openModal}>
+            <div  className="Media" onClick={this.openModal}>
                 <div className="Media-cover">
                     <img 
                         src={this.props.cover}
