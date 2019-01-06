@@ -28,9 +28,6 @@ class Home extends Component {
             <HandleError>
                 <HomeLayout>
                     <Related />
-                    <VideoPlayer
-                        autoplay={true}
-                    />
                     <Categories openModal={this.openModal} categories={this.props.data.categories} />
                     {/* este es un if que valida el valor boolean del state */}
                     {/* modalVisible solo es un boolean inventado pero podria ser cualquier cosa no es que sea un metodo de react o algo asi solo es una propiedad del objeto state que si se cumple muestra los bloques del ModalContainer si no siemplemente no muestra nada xq no los carga  */}
@@ -38,9 +35,11 @@ class Home extends Component {
                         this.state.modalVisible &&
                         <ModalContainer >
                             <Modal
-                            closeModal={this.closeModal}
+                                closeModal={this.closeModal}
                             >
-                                <h1>esto es un portal</h1>
+                                <VideoPlayer
+                                    autoplay={true}
+                                />
                             </Modal>
                         </ModalContainer>
                     }
