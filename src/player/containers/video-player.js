@@ -5,6 +5,7 @@ import Title from '../components/title'
 import PlayPause from '../components/play-pause'
 import Timer from '../components/timer'
 import Controls from '../components/video-player-controls'
+import ProgressBar from '../components/progress-bar'
 class VideoPlayer extends Component {
     state = {
         pause: true,
@@ -53,6 +54,9 @@ class VideoPlayer extends Component {
         const seconds = parseInt(secs % 60, 10)
         return `${this.leftPad(minutes.toString())} : ${this.leftPad(seconds.toString())}`
     }
+    handleInputChange = (ev) => {
+        this.video.currentTime = ev.target.value
+    }
     render() {
         return(
             <VideoPlayerLayout>
@@ -67,6 +71,11 @@ class VideoPlayer extends Component {
                     <Timer 
                         duration={this.FormattedTime(this.state.duration)}
                         currentTime={this.FormattedTime(this.state.currentTime)}
+                    />
+                    <ProgressBar
+                        duration={this.state.duration}
+                        value={this.state.currentTime}
+                        handleInputChange={this.handleInputChange}
                     />
                 </Controls>
                 <Video 
