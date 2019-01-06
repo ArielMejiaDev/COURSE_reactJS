@@ -6,11 +6,13 @@ import PlayPause from '../components/play-pause'
 import Timer from '../components/timer'
 import Controls from '../components/video-player-controls'
 import ProgressBar from '../components/progress-bar'
+import Spinner from '../components/spinner'
 class VideoPlayer extends Component {
     state = {
         pause: true,
         duration: 0,
         currentTime: 0,
+        loading: false,
     }
     togglePlay = ev => {
         this.setState({
@@ -57,6 +59,17 @@ class VideoPlayer extends Component {
     handleInputChange = (ev) => {
         this.video.currentTime = ev.target.value
     }
+    handleSeeking = ev => {
+        this.setState({
+            loading: true,
+        })
+    }
+
+    handleSeeked = ev => {
+        this.setState({
+            loading: false,
+        })
+    }
     render() {
         return(
             <VideoPlayerLayout>
@@ -78,6 +91,9 @@ class VideoPlayer extends Component {
                         handleInputChange={this.handleInputChange}
                     />
                 </Controls>
+                <Spinner
+                    active={this.state.loading}
+                />
                 <Video 
                     handleLoadedMetadata={this.handleLoadedMetadata}
                     handleTimeMediaUpdate={this.handleTimeMediaUpdate}
@@ -87,6 +103,8 @@ class VideoPlayer extends Component {
                     //sino state.pause, asi el valor que se envia al componente Video tambien cambia dinamicamente
                     pause={this.state.pause}
                     src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+                    handleSeeking={this.handleSeeking}
+                    handleSeeked={this.handleSeeked}
                 />
             </VideoPlayerLayout>
         )

@@ -19,7 +19,7 @@ class Video extends Component {
     setRef = element => this.video = element
     render() {
         //vamos a crear un objeto vacio para inicializar una propiedad con el valor de los props y asi usarlo en la funcion handleLoadedMetadata
-        const { handleLoadedMetadata, handleTimeMediaUpdate } = this.props//al parecer solo estoy descomponiendo y tomando metadata como una constante
+        const { handleLoadedMetadata, handleTimeMediaUpdate, handleSeeking, handleSeeked } = this.props//al parecer solo estoy descomponiendo y tomando metadata como una constante
         //estos seria igual a: <video src={this.props.src} autoPlay ={this.props.autoplay} .... y ... onLoadedMetadata={this.props.handleLoadedMetadata}/ >
         //pero en vez de usar el props se iguala al props para no incluir el this.props
         return(
@@ -34,6 +34,8 @@ class Video extends Component {
                     //onLoadedMetadata={this.props.handleLoadedMetadata}
                     onLoadedMetadata={handleLoadedMetadata}
                     onTimeUpdate={handleTimeMediaUpdate}
+                    onSeeking={handleSeeking}
+                    onSeeked={handleSeeked}
                 />
             </div>
         )
